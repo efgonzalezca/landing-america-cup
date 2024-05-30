@@ -1,0 +1,1 @@
+export { getPointsMatch } from './simulator.util';

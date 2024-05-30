@@ -1,0 +1,111 @@
+:root {
+  --primary-color: #003282;
+  --secondary-color: #0063DD;
+  --third-color: #034186;
+  --primary-auxiliar-color: #C7C6C6;
+  --secondary-auxiliar-color: #FD2A2A;
+  --text-color: whitesmoke;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: var(--text-color);
+  background-color: var(--secondary-color);
+  font-family: Arial, sans-serif;
+}
+
+.header { 
+  padding: 1rem;
+  text-align: center;
+  background-color: var(--primary-color);
+}
+
+/* Esto es para la seccion de reglas */
+section {
+  padding: 1.8rem;
+  background-color: var(--third-color);
+  font-size: 1.2em;
+  border-radius: 10px;
+  margin: 20px;
+}
+
+.rules {
+  text-align: left;
+  color: var(--text-color);
+}
+
+.rules h2 {
+  text-align: center;
+}
+
+.rules p {
+  margin-bottom: .8em;
+}
+
+.rules strong {
+  color: var(--secondary-auxiliar-color);
+}
+
+.simulator {
+  text-align: center;
+}
+
+.score-inputs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+}
+
+.input-group input {
+  width: 60px;
+  text-align: center;
+  font-size: 1.5em;
+  margin: 0 10px;
+  padding: 5px;
+  border: 2px solid var(--primary-color);
+  border-radius: 5px;
+}
+
+.input-group span {
+  font-size: 1.5em;
+  margin: 0 10px;
+}
+
+button {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  font-size: 1em;
+  padding: 0.8em 1.6em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:disabled,
+button:hover:disabled {
+  cursor: default;
+  color: #ccc;
+  background-color: #ddd;
+}
+
+button:hover {
+  background-color: white;
+  color: var(--secondary-color);
+}
+
+.simulator p {
+  font-size: 1.2em;
+  margin-top: 1em;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  display: none;
+}
