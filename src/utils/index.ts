@@ -1,1 +1,1 @@
-export { getPointsMatch } from './simulator.util';
+export { getPointsMatch, getPointsMatchDiscriminated } from './simulator.util';

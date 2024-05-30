@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { IMatch } from '../types/Match';
-import { getPointsMatch } from '../utils';
+import { getPointsMatch, getPointsMatchDiscriminated } from '../utils';
 
 export const Simulator: React.FC = () => {
   const [currentLocalScore, setCurrentLocalScore] = useState<number | null>(null);
@@ -84,7 +84,87 @@ export const Simulator: React.FC = () => {
       {points !== null && (
         <>
           <p>Puntos Obtenidos</p>
-          <label>{points}</label>
+          <label className="point">{points}</label>
+          <h3>
+            Detalles:
+          </h3>
+            <ul>
+              <li>
+                Puntos por acertar el encuentro: <span className="point">
+                  {
+                    getPointsMatchDiscriminated(
+                      {
+                        local_team: {result: currentLocalScore as number},
+                        visiting_team: {result: currentVisitorScore as number}
+                      },
+                      predictedLocalScore as number,
+                      predictedVisitorScore as number,
+                      'matchPoints'
+                    )
+                  }
+                </span>
+              </li>
+              <li>
+                Puntos por acertar el marcador local: <span className="point">
+                  {
+                    getPointsMatchDiscriminated(
+                      {
+                        local_team: {result: currentLocalScore as number},
+                        visiting_team: {result: currentVisitorScore as number}
+                      },
+                      predictedLocalScore as number,
+                      predictedVisitorScore as number,
+                      'localScorePoints'
+                    )
+                  }
+                </span>
+              </li>
+              <li>
+                Puntos por acertar el marcador visitante: <span className="point">
+                  {
+                    getPointsMatchDiscriminated(
+                      {
+                        local_team: {result: currentLocalScore as number},
+                        visiting_team: {result: currentVisitorScore as number}
+                      },
+                      predictedLocalScore as number,
+                      predictedVisitorScore as number,
+                      'visitorScorePoints'
+                    )
+                  }
+                </span>
+              </li>
+              <li>
+                Puntos por acertar el resultado exacto: <span className="point">
+                  {
+                    getPointsMatchDiscriminated(
+                      {
+                        local_team: {result: currentLocalScore as number},
+                        visiting_team: {result: currentVisitorScore as number}
+                      },
+                      predictedLocalScore as number,
+                      predictedVisitorScore as number,
+                      'exactScore'
+                    )
+                  }
+                </span>
+              </li>
+              <li>
+                Puntos bonificación en caso de empate no exacto: <span className="point">
+                  {
+                    getPointsMatchDiscriminated(
+                      {
+                        local_team: {result: currentLocalScore as number},
+                        visiting_team: {result: currentVisitorScore as number}
+                      },
+                      predictedLocalScore as number,
+                      predictedVisitorScore as number,
+                      'addPoints'
+                    )
+                  }
+                </span>
+              </li>
+            </ul>
         </>
       )}
     </section>
